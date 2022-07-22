@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 export const Listado = (listState, setListState) => {
 
     //const [listState, setListState] = useState([]);
 
-    useEffect(() => {
-        conseguirPeliculas();
-    }, []);
+   
 
     //relleno el array vacio
     const conseguirPeliculas = () => {
@@ -14,6 +12,11 @@ export const Listado = (listState, setListState) => {
         
         setListState(peliculas);
     }
+
+    useEffect(() => {
+        console.log("Componentes del listado de la pelicula cargado!!")
+        conseguirPeliculas();
+    },[]);
 
 
     return (
@@ -32,7 +35,6 @@ export const Listado = (listState, setListState) => {
                 })
                 : <h2>No hay peliculas para mostrar</h2>
             }
-
         </>
     )
 }
